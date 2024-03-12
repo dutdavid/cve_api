@@ -2,8 +2,8 @@
 package routes
 
 import (
-	"github.com/dutdavid/cve-api/controllers"
-	"github.com/dutdavid/cve-api/mongodb"
+	"github.com/dutdavid/cve_api/controllers"
+	"github.com/dutdavid/cve_api/mongodb"
 	"github.com/gin-gonic/gin"
 )
 

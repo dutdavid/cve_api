@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/dutdavid/cve-api/routes"
-	"github.com/dutdavid/cve-api/scheduler"
+	"github.com/dutdavid/cve_api/routes"
+	"github.com/dutdavid/cve_api/scheduler"
 )
 
 func main() {

@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/dutdavid/cve-api/models"
-	"github.com/dutdavid/cve-api/mongodb"
+	"github.com/dutdavid/cve_api/models"
+	"github.com/dutdavid/cve_api/mongodb"
 )
 
 func FetchAndStoreCVEs() error {

@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dutdavid/cve-api/models"
-	"github.com/dutdavid/cve-api/mongodb"
+	"github.com/dutdavid/cve_api/models"
+	"github.com/dutdavid/cve_api/mongodb"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 )

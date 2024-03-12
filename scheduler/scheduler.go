@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/dutdavid/cve-api/datafetch"
+	"github.com/dutdavid/cve_api/datafetch"
 )
 
 func StartScheduler() {
