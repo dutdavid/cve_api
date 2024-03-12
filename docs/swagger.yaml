@@ -1,0 +1,79 @@
+definitions:
+  gin.H:
+    additionalProperties: {}
+    type: object
+  models.CVE:
+    properties:
+      cveid:
+        type: string
+      dateAdded:
+        type: string
+      dueDate:
+        type: string
+      id:
+        type: string
+      knownRansomwareUse:
+        type: string
+      notes:
+        type: string
+      product:
+        type: string
+      requiredAction:
+        type: string
+      shortDescription:
+        type: string
+      vendorProject:
+        type: string
+      vulnerabilityName:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /cve/{cveID}:
+    get:
+      description: Get a CVE by its CVE ID
+      operationId: get-cve-by-id
+      parameters:
+      - description: CVE ID
+        in: path
+        name: cveID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CVE'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Get CVE details by CVE ID
+  /cve/date/{dateAdded}:
+    get:
+      description: Get CVEs based on the date they were added to the CISA feed
+      operationId: get-cves-by-date
+      parameters:
+      - description: Date Added (YYYY-MM-DD)
+        in: path
+        name: dateAdded
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CVE'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Get CVEs by date added
+swagger: "2.0"

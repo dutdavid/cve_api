@@ -1,0 +1,121 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/cve/date/{dateAdded}": {
+            "get": {
+                "description": "Get CVEs based on the date they were added to the CISA feed",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get CVEs by date added",
+                "operationId": "get-cves-by-date",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Date Added (YYYY-MM-DD)",
+                        "name": "dateAdded",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.CVE"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/cve/{cveID}": {
+            "get": {
+                "description": "Get a CVE by its CVE ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get CVE details by CVE ID",
+                "operationId": "get-cve-by-id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "CVE ID",
+                        "name": "cveID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.CVE"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "gin.H": {
+            "type": "object",
+            "additionalProperties": {}
+        },
+        "models.CVE": {
+            "type": "object",
+            "properties": {
+                "cveid": {
+                    "type": "string"
+                },
+                "dateAdded": {
+                    "type": "string"
+                },
+                "dueDate": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "knownRansomwareUse": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "product": {
+                    "type": "string"
+                },
+                "requiredAction": {
+                    "type": "string"
+                },
+                "shortDescription": {
+                    "type": "string"
+                },
+                "vendorProject": {
+                    "type": "string"
+                },
+                "vulnerabilityName": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
